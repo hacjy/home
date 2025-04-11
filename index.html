@@ -1,107 +1,332 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <title>hacjy个人主页</title>
-    <meta name="description"
-        content="这里是网站介绍">
-    <meta name="keywords" content="这里是网站关键词">
-    <link rel="stylesheet" type="text/css" href="./css/FiraCode.css">
-    <link rel="stylesheet" type="text/css" href="./css/nutssss.css">
-    <link rel="icon" href="./favicon.ico">
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泉州两日游旅行规划表</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            padding: 10mm;
+            box-sizing: border-box;
+            line-height: 1.5;
+            color: #333;
+            background-color: #fff;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #e74c3c;
+            margin: 0;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin: 5px 0;
+        }
+        .weather-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+        .weather-day {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 5px;
+            min-width: 120px;
+        }
+        .section {
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #e74c3c;
+            border-left: 4px solid #e74c3c;
+            padding-left: 10px;
+            margin: 15px 0 10px;
+        }
+        .timeline {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .timeline th {
+            background-color: #f5f5f5;
+            padding: 8px;
+            text-align: left;
+            font-weight: 500;
+        }
+        .timeline td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        .timeline tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .icon {
+            width: 20px;
+            text-align: center;
+            margin-right: 5px;
+            color: #e74c3c;
+        }
+        .transport {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .transport-line {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .transport-icon {
+            margin-right: 10px;
+            color: #3498db;
+            width: 20px;
+            text-align: center;
+        }
+        .notes {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .note-item {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .note-icon {
+            margin-right: 8px;
+            color: #e74c3c;
+            width: 16px;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Noto Sans SC', sans-serif;
+            z-index: 100;
+        }
+        .print-btn:hover {
+            background-color: #c0392b;
+        }
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+        .cut-line {
+            border-top: 1px dashed #ccc;
+            margin: 15px 0;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
 </head>
-
 <body>
-    <div id="box">
-        <!-- 个人资料卡片 -->
-        <div class="meBox">
-            <!-- 头像 -->
-            <div class="headPhoto"></div>
-            <!-- 介绍 -->
-            <div class="meBox-title">
-                <p>I'm hacjy</p>
-                <div class="fg"></div>
+    <div class="header">
+        <h1 class="title">泉州两日游旅行规划表</h1>
+        <p class="subtitle">2025年4月12日-13日 | 单人/团队旅行</p>
+        <div class="weather-info">
+            <div class="weather-day">
+                <i class="fas fa-cloud-rain"></i> 4月12日：中雨转小雨<br>
+                13°C-26°C | 西南风4级
             </div>
-            <div class="meBox-text">
-                <p>一条咸鱼<img src="./img/fish.png" alt="咸鱼" style="width: 20px; vertical-align: middle;"></p>
-                <p>爱好篮球，计算机</p>
-                <p>Android&Flutter Engineer</p>
-            </div>
-            <!-- 两个按钮 -->
-            <div class="meBox-Button">
-                <a href="https://github.com/hacjy">关于</a>
-                <a href="mailto:chenjieyang@126.com">联系</a>
+            <div class="weather-day">
+                <i class="fas fa-cloud"></i> 4月13日：多云<br>
+                14°C-23°C | 东南风1-3级
             </div>
         </div>
+    </div>
 
-        <!-- 伪终端介绍 -->
-        <div id="cmdBox">
-            <!-- 第一个终端 -->
-            <div class="cmd">
-                <!-- 三个按钮 -->
-                <div class="click">
-                    <div class="red"></div>
-                    <div class="yellow"></div>
-                    <div class="green"></div>
-                </div>
-                <!-- 顶部标题 -->
-                <div class="title">
-                    <span>loveclq - bash</span>
-                </div>
-                <!-- 终端内文字 -->
-                <div class="cmdText">
-                    <span style="color: rgb(0, 190, 0);">root@nutssss</span>
-                    <span style="color: blue;">~</span>
-                    <span style="color: rgb(39, 39, 39);">./tianqi.sh</span>
-                    <br />
-                    <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tb&skin=pitaya" frameborder="0"
-                        width="350" height="24" allowtransparency="true"></iframe>
-                    <br />
-                    <span style="color: rgb(0, 190, 0);">root@nutssss</span>
-                    <span style="color: blue;">~</span>
-                    <span style="color: rgb(39, 39, 39);">cat /me.txt</span>
-                    <p>Android，Flutter开发工程师</p>
-                    <span style="color: rgb(0, 190, 0);">root@nutssss</span>
-                    <span style="color: blue;">~</span>
-                    <span style="color: rgb(39, 39, 39);">sudo rm -rf /过去的自己/*</span>
+    <div class="section">
+        <h2 class="section-title"><i class="fas fa-map-marked-alt icon"></i>行程概览</h2>
+        <div class="notes">
+            <div class="note-item">
+                <i class="fas fa-info-circle note-icon"></i>
+                <span><strong>文化主题</strong>：宗教建筑（开元寺、清净寺、关帝庙）→ 闽台文化（博物馆）</span>
+            </div>
+            <div class="note-item">
+                <i class="fas fa-wallet note-icon"></i>
+                <span><strong>预计花费</strong>：¥400-600（含门票、交通、餐饮）</span>
+            </div>
+            <div class="note-item">
+                <i class="fas fa-umbrella note-icon"></i>
+                <span><strong>特别提醒</strong>：4月12日有雨，建议携带雨具和防滑鞋</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title"><i class="fas fa-clock icon"></i>详细行程</h2>
+        
+        <h3>第一天（4月12日）</h3>
+        <table class="timeline">
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>活动</th>
+                    <th>地点</th>
+                    <th>详情</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>09:00-11:00</td>
+                    <td><i class="fas fa-torii-gate"></i> 开元寺</td>
+                    <td>鲤城区西街176号</td>
+                    <td>门票¥10，参观东西塔，建议游玩2小时</td>
+                </tr>
+                <tr>
+                    <td>11:30-13:00</td>
+                    <td><i class="fas fa-utensils"></i> 西街午餐</td>
+                    <td>西街美食街</td>
+                    <td>推荐：侯阿婆肉粽（人均¥25）</td>
+                </tr>
+                <tr>
+                    <td>14:00-15:00</td>
+                    <td><i class="fas fa-mosque"></i> 清净寺</td>
+                    <td>涂门街（近关帝庙）</td>
+                    <td>中国现存最古老清真寺，门票¥3</td>
+                </tr>
+                <tr>
+                    <td>15:30-16:30</td>
+                    <td><i class="fas fa-temple"></i> 关帝庙</td>
+                    <td>涂门街</td>
+                    <td>闽南香火最旺的庙宇，免费参观</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>第二天（4月13日）</h3>
+        <table class="timeline">
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>活动</th>
+                    <th>地点</th>
+                    <th>详情</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>09:00-11:00</td>
+                    <td><i class="fas fa-landmark"></i> 闽台缘博物馆</td>
+                    <td>丰泽区北清东路</td>
+                    <td>免费，需身份证，建议游玩2小时</td>
+                </tr>
+                <tr>
+                    <td>11:30-12:30</td>
+                    <td><i class="fas fa-landmark"></i> 泉州博物馆</td>
+                    <td>丰泽区西湖街</td>
+                    <td>免费，与闽台缘博物馆相邻</td>
+                </tr>
+                <tr>
+                    <td>13:00-14:30</td>
+                    <td><i class="fas fa-utensils"></i> 东兴牛肉店</td>
+                    <td>庄府巷</td>
+                    <td>推荐：牛肉羹+咸饭（人均¥35）</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title"><i class="fas fa-route icon"></i>交通路线</h2>
+        <div class="transport">
+            <div class="transport-line">
+                <i class="fas fa-walking transport-icon"></i>
+                <div>
+                    <strong>开元寺→清净寺</strong>：步行1.2公里（约20分钟）<br>
+                    <small>途经：西街→涂门街</small>
                 </div>
             </div>
-            <!-- 第二个终端 -->
-            <div class="cmd cmd2">
-                <!-- 三个按钮 -->
-                <div class="click">
-                    <div class="red"></div>
-                    <div class="yellow"></div>
-                    <div class="green"></div>
+            <div class="transport-line">
+                <i class="fas fa-bus transport-icon"></i>
+                <div>
+                    <strong>市区→闽台缘博物馆</strong>：乘37路公交（钟楼站→博物馆站）约25分钟
                 </div>
-                <!-- 顶部标题 -->
-                <div class="title">
-                    <span>loveclq - bash</span>
-                </div>
-                <!-- 终端内文字 -->
-                <div class="cmdText">
-                    <span style="color: rgb(0, 190, 0);">root@nutssss</span>
-                    <span style="color: blue;">~</span>
-                    <span style="color: rgb(39, 39, 39);">./links.sh</span>
-                    <p>我的其他站点：</p>
-                    <ul class="ul">
-                        <li><a href="https://github.com/hacjy">Github</a></li>
-                        <li><a href="https://blog.csdn.net/ha_cjy">Blog</a></li>
-                    </ul>
-                    <span style="color: rgb(0, 190, 0);">root@nutssss</span>
-                    <span style="color: blue;">~</span>
+            </div>
+            <div class="transport-line">
+                <i class="fas fa-walking transport-icon"></i>
+                <div>
+                    <strong>闽台缘→泉州博物馆</strong>：步行733米（约10分钟）
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 页脚 -->
-    <div id="footer">
-        <p>© 2023 HACJY</p>
+    <div class="section">
+        <h2 class="section-title"><i class="fas fa-info-circle icon"></i>实用信息</h2>
+        <div class="notes">
+            <div class="note-item">
+                <i class="fas fa-exclamation-triangle note-icon"></i>
+                <span><strong>雨天提示</strong>：4月12日有雨，西街石板路湿滑需小心</span>
+            </div>
+            <div class="note-item">
+                <i class="fas fa-ticket-alt note-icon"></i>
+                <span><strong>门票优惠</strong>：学生证可享半价（需配合身份证使用）</span>
+            </div>
+            <div class="note-item">
+                <i class="fas fa-phone-alt note-icon"></i>
+                <span><strong>紧急电话</strong>：报警110 | 急救120 | 旅游投诉0595-22162068</span>
+            </div>
+        </div>
     </div>
+
+    <div class="cut-line">剪裁线</div>
+
+    <div class="footer">
+        <p>泉州两日游旅行规划表 | 生成日期：2025年4月10日</p>
+        <p>建议打印本表随身携带，祝您旅途愉快！</p>
+    </div>
+
+    <button class="print-btn" onclick="window.print()"><i class="fas fa-print"></i> 打印行程表</button>
+
+    <script>
+        // 可添加动态功能（如天气实时更新）
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('行程表加载完成');
+        });
+    </script>
 </body>
-
 </html>
