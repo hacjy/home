@@ -2,553 +2,177 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>泰宁大金湖亲子旅行规划表</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>泰宁大金湖家庭旅行规划表</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #e6f7ff, #f0f9ff);
-            color: #333;
-            padding: 20px;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 794px; /* A4宽度 */
-            min-height: 1123px; /* A4高度 */
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 30px rgba(0, 0, 100, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            padding: 30px;
-            border: 1px solid #d0e8ff;
-        }
-        
-        .watermark {
-            position: absolute;
-            opacity: 0.03;
-            font-size: 180px;
-            font-weight: bold;
-            color: #0066cc;
-            transform: rotate(-30deg);
-            z-index: 0;
-            top: 30%;
-            left: 10%;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #4a9eff;
-            position: relative;
-            z-index: 1;
-        }
-        
-        h1 {
-            color: #0066cc;
-            font-size: 32px;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-        
-        .subtitle {
-            color: #ff6600;
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-        
-        .info-bar {
-            background: #e6f2ff;
-            padding: 12px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-around;
-            margin: 15px 0;
-            font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
-        .info-item {
-            display: flex;
-            align-items: center;
-        }
-        
-        .info-item i {
-            margin-right: 8px;
-            color: #0066cc;
-            font-size: 18px;
-        }
-        
-        section {
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        h2 {
-            color: #0066cc;
-            background: #e6f2ff;
-            padding: 10px 15px;
-            border-left: 5px solid #4a9eff;
-            margin-bottom: 15px;
-            border-radius: 0 8px 8px 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        h2 i {
-            margin-right: 10px;
-            font-size: 22px;
-        }
-        
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 15px;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e0f0ff;
-            transition: transform 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 100, 200, 0.15);
-        }
-        
-        .card-header {
-            background: linear-gradient(135deg, #4a9eff, #0066cc);
-            color: white;
-            padding: 15px;
-            font-weight: bold;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .card-header i {
-            margin-right: 10px;
-            font-size: 20px;
-        }
-        
-        .card-body {
-            padding: 20px;
-        }
-        
-        .transport-grid {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 10px;
-            align-items: center;
-        }
-        
-        .icon-box {
-            background: #e6f2ff;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            color: #0066cc;
-        }
-        
-        .transport-details h3 {
-            color: #0066cc;
-            margin-bottom: 5px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-        
-        th {
-            background: #e6f2ff;
-            padding: 12px;
-            text-align: left;
-            color: #0066cc;
-            border-bottom: 2px solid #4a9eff;
-        }
-        
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #e0f0ff;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f8fbff;
-        }
-        
-        .highlight {
-            background: #fff9e6;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #ffcc00;
-            margin: 15px 0;
-        }
-        
-        .highlight-header {
-            display: flex;
-            align-items: center;
-            color: #cc9900;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        
-        .task-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        
-        .task-card {
-            background: #f0f9ff;
-            border: 1px dashed #4a9eff;
-            border-radius: 10px;
-            padding: 15px;
-            position: relative;
-        }
-        
-        .task-card h3 {
-            color: #0066cc;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .task-card h3 i {
-            margin-right: 8px;
-            color: #ff6600;
-        }
-        
-        .print-note {
-            text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background: #e6f7ff;
-            border-radius: 8px;
-            font-size: 14px;
-            color: #0066cc;
-        }
-        
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                margin: 0;
-                padding: 15px;
-                min-height: auto;
-                border: none;
-            }
-            
-            .watermark {
-                display: none;
-            }
-        }
+        * { font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #faf7f2; color: #333; line-height: 1.6; padding: 20px; max-width: 900px; margin: 0 auto; }
+        .header { text-align: center; padding: 30px 0; background: linear-gradient(135deg, #d54d4d 0%, #8e1c1c 100%); border-radius: 12px; color: white; margin-bottom: 25px; }
+        h1 { font-size: 2.5rem; letter-spacing: 2px; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .subtitle { font-size: 1.2rem; opacity: 0.9; }
+        .card { background: white; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.08); padding: 25px; margin-bottom: 25px; }
+        h2 { color: #8e1c1c; border-left: 4px solid #d54d4d; padding-left: 12px; margin: 20px 0; }
+        h3 { color: #d54d4d; margin: 15px 0 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background-color: #f8e6e6; }
+        .icon { display: inline-block; width: 24px; text-align: center; margin-right: 8px; }
+        .tip-box { background: #fff9e6; border-left: 4px solid #ffcc00; padding: 15px; border-radius: 0 8px 8px 0; margin: 15px 0; }
+        .map { height: 200px; background: #e9ecef; border-radius: 8px; margin: 15px 0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666; }
+        .footer { text-align: center; margin-top: 20px; color: #777; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="watermark">泰宁大金湖</div>
+    <div class="header">
+        <h1>泰宁大金湖家庭旅行规划表</h1>
+        <div class="subtitle">2025年7月4日-6日 · 厦门出发 · 三日家庭之旅</div>
+    </div>
+
+    <div class="card">
+        <h2>行程概览</h2>
+        <table>
+            <tr>
+                <th>日期</th>
+                <th>上午</th>
+                <th>下午</th>
+                <th>晚上</th>
+            </tr>
+            <tr>
+                <td><strong>7月4日</strong></td>
+                <td>厦门动车出发</td>
+                <td>泰宁站→酒店入住</td>
+                <td>泰宁古城+晚餐</td>
+            </tr>
+            <tr>
+                <td><strong>7月5日</strong></td>
+                <td>大金湖游船+甘露寺</td>
+                <td>水上斜线天+全鱼宴</td>
+                <td>自由活动</td>
+            </tr>
+            <tr>
+                <td><strong>7月6日</strong></td>
+                <td>上清溪竹筏漂流</td>
+                <td>尚书第文化之旅</td>
+                <td>返程厦门</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>每日详细规划</h2>
         
-        <header>
-            <h1>泰宁大金湖亲子旅行规划表</h1>
-            <div class="subtitle">厦门出发 · 3天2晚 · 家庭专属行程</div>
-            <div class="info-bar">
-                <div class="info-item"><i class="fas fa-calendar-alt"></i> 日期：2025年7月4日-7月6日</div>
-                <div class="info-item"><i class="fas fa-users"></i> 成员：父母+1名儿童</div>
-                <div class="info-item"><i class="fas fa-map-marker-alt"></i> 出发地：厦门</div>
-            </div>
-        </header>
+        <h3><span class="icon">🚆</span> 7月4日（周五）</h3>
+        <p><strong>交通：</strong> 
+            <ul>
+                <li>厦门北→泰宁站：推荐车次 <strong>D6532次（13:15-16:05）</strong> 或 <strong>G5102次（14:30-17:25）</strong> :cite[7]</li>
+                <li>泰宁站→酒店：乘5路/9路公交至"灵秀商城"站（车程15分钟，票价2元），转乘旅游直通车:cite[1]</li>
+            </ul>
+        </p>
+        <p><strong>住宿推荐：</strong>
+            <ul>
+                <li><strong>润湖民宿</strong>：2024年新开业，距景区1.8公里，4.9分好评（双床房约300元/晚）:cite[3]</li>
+                <li><strong>丹霞缘家庭宾馆</strong>：景区内农家乐，体验地道民居（提供停车位）:cite[9]</li>
+            </ul>
+        </p>
+        <p><strong>晚间活动：</strong>
+            <ul>
+                <li>泰宁古城：免费游览明代建筑群，品尝小吃"碧玉卷""仙草糕":cite[10]</li>
+                <li>晚餐推荐：戴大勇全鱼馆（提前预约，人均60元）:cite[4]</li>
+            </ul>
+        </p>
         
-        <section>
-            <h2><i class="fas fa-route"></i> 交通安排</h2>
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-header"><i class="fas fa-train"></i> 7月4日（去程）</div>
-                    <div class="card-body">
-                        <div class="transport-grid">
-                            <div class="icon-box"><i class="fas fa-train"></i></div>
-                            <div class="transport-details">
-                                <h3>动车：厦门 → 三明北</h3>
-                                <p>建议班次：G1652 (08:02-10:08)</p>
-                                <p>车程：约2小时</p>
-                            </div>
-                        </div>
-                        <div class="transport-grid" style="margin-top:15px">
-                            <div class="icon-box"><i class="fas fa-car"></i></div>
-                            <div class="transport-details">
-                                <h3>汽车：三明北 → 泰宁</h3>
-                                <p>旅游大巴/网约车</p>
-                                <p>车程：约1.5-2小时</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header"><i class="fas fa-train"></i> 7月6日（返程）</div>
-                    <div class="card-body">
-                        <div class="transport-grid">
-                            <div class="icon-box"><i class="fas fa-car"></i></div>
-                            <div class="transport-details">
-                                <h3>汽车：泰宁 → 三明北</h3>
-                                <p>建议午饭后出发</p>
-                                <p>预留充足时间</p>
-                            </div>
-                        </div>
-                        <div class="transport-grid" style="margin-top:15px">
-                            <div class="icon-box"><i class="fas fa-train"></i></div>
-                            <div class="transport-details">
-                                <h3>动车：三明北 → 厦门</h3>
-                                <p>建议选择下午班次</p>
-                                <p>车程：约2小时</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="highlight">
-                <div class="highlight-header"><i class="fas fa-lightbulb"></i> 家长提示</div>
-                <p>动车上可为孩子准备绘本和小零食；泰宁景区内建议包车或打车，公共交通较少。</p>
-            </div>
-        </section>
-        
-        <section>
-            <h2><i class="fas fa-hotel"></i> 酒店推荐</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>酒店名称</th>
-                        <th>特色</th>
-                        <th>价格</th>
-                        <th>推荐理由</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>听风吟湖·Life轻奢美宿</strong></td>
-                        <td>湖景落地窗、露台观星、近金湖码头</td>
-                        <td>¥400-600</td>
-                        <td>2024年新开业，设计感强，小朋友喜欢看湖景</td>
-                    </tr>
-                    <tr>
-                        <td><strong>润湖民宿</strong></td>
-                        <td>县城中心、配套全、智能入住</td>
-                        <td>¥300-450</td>
-                        <td>适合家庭活动，方便逛古城吃小吃</td>
-                    </tr>
-                    <tr>
-                        <td><strong>泰宁鹭祥南会宾馆</strong></td>
-                        <td>步行至金湖码头、24小时前台、含早餐</td>
-                        <td>¥250-380</td>
-                        <td>位置极佳，节省交通时间</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="highlight">
-                <div class="highlight-header"><i class="fas fa-lightbulb"></i> 家长提示</div>
-                <p>优先预订湖景体验佳的听风吟湖或位置便利的鹭祥南会；预订时确认是否提供儿童拖鞋/牙刷。</p>
-            </div>
-        </section>
-        
-        <section>
-            <h2><i class="fas fa-mountain"></i> 景点游玩计划</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>景点/活动</th>
-                        <th>游玩内容</th>
-                        <th>趣味知识（给孩子讲解）</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>7月4日 下午</strong></td>
-                        <td>泰宁古城</td>
-                        <td>逛尚书第古建筑群、品尝小吃</td>
-                        <td>泰宁有"汉唐古镇，两宋名城"之称，古街石板路像时光隧道！</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="3"><strong>7月5日 全天</strong></td>
-                        <td>大金湖游船</td>
-                        <td>乘船看水上丹霞、远观"猫儿山"</td>
-                        <td>传说猫儿山是天庭金猫变的！它下凡抓老鼠精，被玉帝用宝剑定在山顶守护大金湖~</td>
-                    </tr>
-                    <tr>
-                        <td>甘露岩寺</td>
-                        <td>参观"一根柱子撑起的寺庙"</td>
-                        <td>猜猜为什么寺庙建在岩洞里？（古人利用山洞遮风挡雨，智慧！）</td>
-                    </tr>
-                    <tr>
-                        <td>陆上栈道</td>
-                        <td>平缓栈道登山，俯瞰湖景</td>
-                        <td>丹霞地貌是红色砂砾岩被水"雕刻"成的，像大自然的积木！</td>
-                    </tr>
-                    <tr>
-                        <td><strong>7月6日 上午</strong></td>
-                        <td>寨下大峡谷 或 上清溪漂流</td>
-                        <td>峡谷徒步或竹筏漂流</td>
-                        <td>峡谷岩石上的"年轮"是水流冲刷的痕迹，比恐龙还古老！</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="highlight">
-                <div class="highlight-header"><i class="fas fa-lightbulb"></i> 家长提示</div>
-                <p>游船票提前1天在线预订；斜线天较陡峭，建议带儿童走栈道；漂流需5岁以上，提前确认水位安全。</p>
-            </div>
-        </section>
-        
-        <section>
-            <h2><i class="fas fa-utensils"></i> 特色美食打卡表</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>类型</th>
-                        <th>推荐美食</th>
-                        <th>亮点</th>
-                        <th>孩子适配建议</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="2">早餐</td>
-                        <td>糯米包油条</td>
-                        <td>热糯米裹脆油条，香甜软糯</td>
-                        <td>切小块分享，避免噎食</td>
-                    </tr>
-                    <tr>
-                        <td>锅边糊</td>
-                        <td>米浆做的薄片汤，加小鱼干/香菇</td>
-                        <td>口味清淡，营养易消化</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2">正餐</td>
-                        <td>沙县拌面+扁肉</td>
-                        <td>花生酱拌面+肉馅小馄饨</td>
-                        <td>少酱免辣，扁肉小巧易入口</td>
-                    </tr>
-                    <tr>
-                        <td>金湖有机鱼</td>
-                        <td>现捞鱼做汤，鲜甜无刺</td>
-                        <td>推荐豆腐鱼汤，泡饭超香</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2">小吃/甜品</td>
-                        <td>暖菇包 (艾草粿)</td>
-                        <td>绿皮包笋干/豆沙，清香不腻</td>
-                        <td>选甜口豆沙馅，孩子更爱</td>
-                    </tr>
-                    <tr>
-                        <td>四果汤</td>
-                        <td>西瓜/红豆/仙草+蜂蜜冰水</td>
-                        <td>少冰或去冰，防止着凉</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="highlight">
-                <div class="highlight-header"><i class="fas fa-lightbulb"></i> 家长提示</div>
-                <p>避免街边不明摊贩，选择明厨亮灶的店面；备好肠胃药，初次尝试少量给娃试吃。</p>
-            </div>
-        </section>
-        
-        <section>
-            <h2><i class="fas fa-suitcase"></i> 随身物品清单</h2>
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-header"><i class="fas fa-id-card"></i> 证件</div>
-                    <div class="card-body">
-                        <p>身份证（小孩带户口本）、酒店预订凭证</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header"><i class="fas fa-tshirt"></i> 衣物</div>
-                    <div class="card-body">
-                        <p>运动鞋、薄外套（湖边早晚凉）、遮阳帽、换洗衣物</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header"><i class="fas fa-shield-alt"></i> 防护</div>
-                    <div class="card-body">
-                        <p>防晒霜、驱蚊液、晴雨伞、儿童救生衣（乘船/漂流）</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header"><i class="fas fa-heartbeat"></i> 健康</div>
-                    <div class="card-body">
-                        <p>常用药（退烧/止泻）、创可贴、消毒湿巾</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header"><i class="fas fa-mobile-alt"></i> 其他</div>
-                    <div class="card-body">
-                        <p>充电宝（景区信号弱）、水壶、零食、儿童绘本/玩具</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section>
-            <h2><i class="fas fa-tasks"></i> 给小朋友的旅行任务</h2>
-            <div class="task-container">
-                <div class="task-card">
-                    <h3><i class="fas fa-search"></i> 自然侦探</h3>
-                    <p>在游船上找出3种形状的丹霞山峰（像猫？像佛？像蛋糕？）。</p>
-                </div>
-                
-                <div class="task-card">
-                    <h3><i class="fas fa-book"></i> 故事收集员</h3>
-                    <p>听导游讲"金猫捉老鼠"的故事，回家画给同学看！</p>
-                </div>
-                
-                <div class="task-card">
-                    <h3><i class="fas fa-utensil-spoon"></i> 美食小记者</h3>
-                    <p>尝一口锅边糊，告诉爸爸妈妈它是什么味道的（鲜？滑？香？）。</p>
-                </div>
-            </div>
-            
-            <div class="highlight" style="margin-top:20px">
-                <div class="highlight-header"><i class="fas fa-exclamation-triangle"></i> 安全第一</div>
-                <p>乘船必须穿救生衣，不在甲板奔跑；牵好孩子的手，避开悬崖/水域危险区。</p>
-            </div>
-        </section>
-        
-        <div class="print-note">
-            <i class="fas fa-print"></i> 打印说明：将此表打印在A4纸上（横向排版更佳），放入透明文件袋随身携带。
+        <div class="tip-box">
+            <strong>👨👩👧 亲子知识卡：</strong> 泰宁古城有"汉唐古镇，两宋名城"之称，这里的明代街道曾走出过11位进士！让孩子找找青石板路上的马蹄印，那是古代状元骑马游街的痕迹哦:cite[1]。
         </div>
+
+        <h3><span class="icon">⛵</span> 7月5日（周六）大金湖核心日</h3>
+        <p><strong>上午：</strong> 
+            <ul>
+                <li>08:30 抵达景区：乘直通车至大金湖码头（车程25分钟）:cite[1]</li>
+                <li>09:30 乘游船：购买"门票+船票"联票（成人163元，1.2m以下儿童免票）:cite[8]</li>
+                <li>重点游玩：<strong>甘露岩寺</strong>（悬空古寺）→ 野趣园瀑布:cite[2]</li>
+            </ul>
+        </p>
+        
+        <div class="tip-box">
+            <strong>🧒 孩子会好奇：</strong> 甘露寺为什么能悬在悬崖上？告诉孩子这个秘密：整座寺庙只靠一根<span style="color:#d54d4d;font-weight:bold">"状元柱"</span>支撑！古人用"插拱"技术将木材像搭积木一样嵌入岩洞，千年不倒:cite[8]。记得带娃"抱状元柱"祈福哦！
+        </div>
+
+        <p><strong>中午：</strong> 
+            <ul>
+                <li>12:30 湖畔全鱼宴：推荐"鱻鱼馆"360°湖景餐厅，必点鱼头汤+椒盐鱼骨:cite[4]:cite[10]</li>
+            </ul>
+        </p>
+        
+        <p><strong>下午：</strong> 
+            <ul>
+                <li>14:00 水上斜线天：乘小船穿越百米岩缝，抬头见"天光一线":cite[10]</li>
+                <li>15:30 自由选择：体力好可去猫儿山森林公园（门票40元）:cite[10]</li>
+            </ul>
+        </p>
+        
+        <div class="tip-box">
+            <strong>🌋 地质小课堂：</strong> 大金湖的红色岩石叫<span style="color:#d54d4d;font-weight:bold">丹霞地貌</span>，形成于1亿年前的白垩纪！当时这里是巨大湖泊，恐龙灭绝后地壳抬升，湖水退去，铁元素氧化变红，风雨雕刻出奇峰怪石:cite[1]:cite[6]。
+        </div>
+
+        <h3><span class="icon">🛶</span> 7月6日（周日）</h3>
+        <p><strong>上午：</strong> 
+            <ul>
+                <li>08:30 上清溪竹筏漂流：从县城乘车40分钟（漂流2.5小时，儿童需身高1.2m以上）:cite[6]</li>
+                <li>亮点：穿越"千奇岩穴"，观察白鹭、猕猴（备防水袋！）</li>
+            </ul>
+        </p>
+        
+        <p><strong>下午：</strong> 
+            <ul>
+                <li>13:30 尚书第：明代兵部尚书府邸，看"四世一品"石牌坊（门票15元）:cite[5]</li>
+                <li>15:00 返程：乘5路公交至泰宁站，建议车次 <strong>D6537次（16:10-19:40抵厦）</strong>:cite[7]</li>
+            </ul>
+        </p>
+        
+        <div class="tip-box">
+            <strong>🏯 历史故事角：</strong> 尚书第主人李春烨是个"大器晚成"的榜样！他39岁中进士，52岁成兵部尚书。让孩子数数府邸的<span style="color:#d54d4d;font-weight:bold">120根石柱</span>，每根都刻着不同花纹，象征"栋梁之材":cite[1]。
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>实用信息汇总</h2>
+        <table>
+            <tr>
+                <th>项目</th>
+                <th>说明</th>
+                <th>费用参考</th>
+            </tr>
+            <tr>
+                <td>大金湖门票+船票</td>
+                <td>必购！每日9:30/13:30发船:cite[2]</td>
+                <td>成人163元，1.2-1.4m儿童半价</td>
+            </tr>
+            <tr>
+                <td>上清溪漂流</td>
+                <td>约2.5小时，备换衣物:cite[6]</td>
+                <td>竹筏75元/人</td>
+            </tr>
+            <tr>
+                <td>特色美食</td>
+                <td>全鱼宴、碧玉卷（米皮包笋）、暖菇包:cite[10]</td>
+                <td>正餐人均40-60元</td>
+            </tr>
+            <tr>
+                <td>必备物品</td>
+                <td>防晒衣、防滑鞋、儿童身份证、驱蚊液:cite[8]</td>
+                <td>-</td>
+            </tr>
+        </table>
+        
+        <div class="map">
+            [泰宁景区示意图] 
+            <br>火车站→（5路公交）→古城集散中心→（直通车）→大金湖码头
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>本行程由泰宁旅游信息整合制作 · 更新于2025年7月2日</p>
+        <p>安全提示：暑期炎热，景区多台阶，请为孩子准备遮阳帽及充足饮水</p>
     </div>
 </body>
 </html>
